@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>RickMorty</title>
+</head>
+
+<body>
+    <header class="header">
+        <p id="headertxt">Rick and Morty</p>
+        <div id="startparent">
+            <button id="letstart">Get Started!</button>
+        </div>
+    </header>
+    <div class="parent1">
+        <div class="main">
+            <div id="all">All</div>
+            <div id="dead">Dead</div>
+            <div id="alive">Alive</div>
+            <div id="unknown">Unknown</div>
+            <div id="back">Back</div>
+        </div>
+        <div class="searchbuttonbox">
+           <div class="search-container">
+            <input class="searchbox" class="search-input" id="search" type="text" name="search" placeholder="Search branch name...">
+           </div>  
+          <button id="searchbutton"><img class="searchimg" src="images/searchlogo.png" alt=""></button>
+        </div>
+        <div class="character-container">
+        </div>
+    </div>
+
+    <script>
+        const characters = [
+            { image: "images/img1.webp", names: ["S23", "Character A", "Character B"] },
+            { image: "images/img2.webp", names: ["S24", "Character C", "Character D"] },
+            { image: "images/img3.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img4.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img5.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img6.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img7.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img8.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img9.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img10.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img11.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img12.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img13.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img14.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img15.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img16.webp", names: ["S25", "Character E", "Character B"] },
+            { image: "images/img17.webp", names: ["S25", "Character E", "Character B"] },
+            // Add more character data here
+        ];
+
+        const characterContainer = document.querySelector('.character-container');
+        const searchInput = document.querySelector('#search');
+
+        function renderCharacters() {
+            characterContainer.innerHTML = '';
+            const searchTerm = searchInput.value.toLowerCase();
+
+            characters.forEach(characterData => {
+                const matchingNames = characterData.names.filter(characterName =>
+                    characterName.toLowerCase().includes(searchTerm)
+                );
+
+                if (matchingNames.length > 0) {
+                    const characterCard = document.createElement('div');
+                    characterCard.classList.add('character-card');
+
+                    const characterImage = document.createElement('img');
+                    characterImage.src = characterData.image;
+
+                    characterCard.appendChild(characterImage);
+
+                    matchingNames.forEach(characterName => {
+                        const characterNameElement = document.createElement('p');
+                        characterNameElement.textContent = characterName;
+                        characterCard.appendChild(characterNameElement);
+                    });
+
+                    characterContainer.appendChild(characterCard);
+                }
+            });
+        }
+
+        // Initial rendering
+        renderCharacters();
+
+        // Add event listener for real-time search
+        searchInput.addEventListener('input', renderCharacters);
+    </script>
+</body>
+
+</html>
