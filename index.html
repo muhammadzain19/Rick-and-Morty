@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <title>RickMorty</title>
+    <style>
+        /* Add a new CSS class for styling the species */
+    </style>
 </head>
-
 <body>
     <header class="header">
         <p id="headertxt">Rick and Morty</p>
@@ -25,35 +26,127 @@
             <div id="back">Back</div>
         </div>
         <div class="searchbuttonbox">
-           <div class="search-container">
-            <input class="searchbox" class="search-input" id="search" type="text" name="search" placeholder="Search branch name...">
-           </div>  
-          <button id="searchbutton"><img class="searchimg" src="images/searchlogo.png" alt=""></button>
+            <div class="search-container">
+                <input class="searchbox" id="search" type="text" name="search" placeholder="Search character name...">
+            </div>
+            <button id="searchbutton"><img class="searchimg" src="images/searchlogo.png" alt=""></button>
         </div>
         <div class="character-container">
+            <!-- Character cards will be added here dynamically using JavaScript -->
         </div>
     </div>
+<!--        { image: "images/img1.webp", names: ["Rick Sanchez"], status: "Alive", species: "Human" },
+        { image: "images/img2.webp", names: ["Morty Smith"], species: "Human" },
+        { image: "images/img3.webp", names: ["Summer Smith"], species: "Human" },
+        { image: "images/img4.webp", names: ["Abradolf Lincler"], species: "Genetic experiment" },
+        { image: "images/img5.webp", names: ["Adjudicator Rick"], species: "Human" },
+        { image: "images/img6.webp", names: ["Agency Director"] },
+        { image: "images/img7.webp", names: ["Alan Rails"] },
+        { image: "images/img8.webp", names: ["Albert Einstein"] },
+        { image: "images/img9.webp", names: ["Alexander"] },
+        { image: "images/img10.webp", names: ["Alien Gogah"] },
+        { image: "images/img11.webp", names: ["Alien Morty"] },
+        { image: "images/img12.webp", names: ["Alien Rick"] },
+        { image: "images/img13.webp", names: ["Amish Cyborg"] },
+        { image: "images/img14.webp", names: ["Annie"] },
+        { image: "images/img15.webp", names: ["Antenna Morty"] },
+        { image: "images/img16.webp", names: ["Antenna Rick"] },
+        { image: "images/img17.webp", names: ["Ants In My Eyes Johnson"] },
 
+-->
     <script>
         const characters = [
-            { image: "images/img1.webp", names: ["S23", "Character A", "Character B"] },
-            { image: "images/img2.webp", names: ["S24", "Character C", "Character D"] },
-            { image: "images/img3.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img4.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img5.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img6.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img7.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img8.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img9.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img10.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img11.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img12.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img13.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img14.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img15.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img16.webp", names: ["S25", "Character E", "Character B"] },
-            { image: "images/img17.webp", names: ["S25", "Character E", "Character B"] },
-            // Add more character data here
+        {
+            name: "Rick Sanchez",
+            status: "Alive",
+            species: "Human",
+            image: "images/img1.webp"
+        },
+        {
+            name: "Morty Smith",
+            status: "Alive",
+            species: "Human",
+            image: "images/img2.webp"
+        },
+        {
+            name: "Summer Smith",
+            status: "Alive",
+            species: "Human",
+            image: "images/img3.webp"
+        },
+        {
+            name: "Abradolf Lincler",
+            status: "Alive",
+            species: "Genetic experiment",
+            image: "images/img4.webp"
+        },
+        {
+            name: "Adjudicator Rick",
+            status: "Alive",
+            species: "Human",
+            image: "images/img5.webp"
+        },
+        {
+            name: "Agency Director",
+            status: "Alive",
+            image: "images/img6.webp"
+        },
+        {
+            name: "Alan Rails",
+            status: "Alive",
+            image: "images/img7.webp"
+        },
+        {
+            name: "Albert Einstein",
+            status: "Alive",
+            image: "images/img8.webp"
+        },
+        {
+            name: "Alexander",
+            status: "Alive",
+            image: "images/img9.webp"
+        },
+        {
+            name: "Alien Gogah",
+            status: "Alive",
+            image: "images/img10.webp"
+        },
+        {
+            name: "Alien Morty",
+            status: "Alive",
+            image: "images/img11.webp"
+        },
+        {
+            name: "Alien Rick",
+            status: "Alive",
+            image: "images/img12.webp"
+        },
+        {
+            name: "Amish Cyborg",
+            status: "Alive",
+            image: "images/img13.webp"
+        },
+        {
+            name: "Annie",
+            status: "Alive",
+            image: "images/img14.webp"
+        },
+        {
+            name: "Antenna Morty",
+            status: "Alive",
+            image: "images/img15.webp"
+        },
+        {
+            name: "Antenna Rick",
+            status: "Alive",
+            image: "images/img16.webp"
+        },
+        {
+            name: "Ants In My Eyes Johnson",
+            status: "Alive",
+            image: "images/img17.webp"
+        }
+        // Add more character data here
         ];
 
         const characterContainer = document.querySelector('.character-container');
@@ -64,11 +157,7 @@
             const searchTerm = searchInput.value.toLowerCase();
 
             characters.forEach(characterData => {
-                const matchingNames = characterData.names.filter(characterName =>
-                    characterName.toLowerCase().includes(searchTerm)
-                );
-
-                if (matchingNames.length > 0) {
+                if (characterData.name.toLowerCase().includes(searchTerm)) {
                     const characterCard = document.createElement('div');
                     characterCard.classList.add('character-card');
 
@@ -77,11 +166,13 @@
 
                     characterCard.appendChild(characterImage);
 
-                    matchingNames.forEach(characterName => {
-                        const characterNameElement = document.createElement('p');
-                        characterNameElement.textContent = characterName;
-                        characterCard.appendChild(characterNameElement);
-                    });
+                    const characterNameElement = document.createElement('p');
+                    characterNameElement.textContent = characterData.name;
+                    characterCard.appendChild(characterNameElement);
+
+                    const speciesElement = document.createElement('b');
+                    speciesElement.textContent = `Species: ${characterData.species || 'Unknown'}`;
+                    characterCard.appendChild(speciesElement);
 
                     characterContainer.appendChild(characterCard);
                 }
@@ -95,5 +186,4 @@
         searchInput.addEventListener('input', renderCharacters);
     </script>
 </body>
-
 </html>
