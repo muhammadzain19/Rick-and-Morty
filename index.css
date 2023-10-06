@@ -42,6 +42,11 @@ background-color: white;
 right: 13px;
 border-radius: 8px;
 bottom: 16px;
+transition: 0.3s;
+}
+.ricklogo:hover{
+    box-shadow: none 0 3px 15px inset, none 0 3px 5px, none 0 10px 13px;
+    transform: scale(1.05);
 }
 
 #letstart {
