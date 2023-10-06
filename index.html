@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- ... (your existing head content) ... -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto&display=swap" rel="stylesheet">
@@ -10,6 +12,7 @@
         /* Add a new CSS class for styling the species */
     </style>
 </head>
+
 <body>
     <header class="header">
         <p id="headertxt">Rick and Morty</p>
@@ -17,13 +20,17 @@
             <button id="letstart">Get Started!</button>
         </div>
     </header>
+
     <div class="parent1">
         <div class="main">
-            <div id="all">All</div>
-            <div id="dead">Dead</div>
-            <div id="alive">Alive</div>
-            <div id="unknown">Unknown</div>
-            <div id="back">Back</div>
+            <button id="all">All</button>
+            <button id="dead">Dead</button>
+            <button id="alive">Alive</button>
+            <button id="unknown">Unknown</button>
+            <button id="back">Back</button>
+        </div>
+        <div class="ricklogo">
+            <img style="width: 150px;" src="images/ricklogo.png">
         </div>
         <div class="searchbuttonbox">
             <div class="search-container">
@@ -32,158 +39,680 @@
             <button id="searchbutton"><img class="searchimg" src="images/searchlogo.png" alt=""></button>
         </div>
         <div class="character-container">
-            <!-- Character cards will be added here dynamically using JavaScript -->
+        </div>
+        <div class="pagination">
+            <div id="pagination-buttons">
+                
+            </div>
         </div>
     </div>
-<!--        { image: "images/img1.webp", names: ["Rick Sanchez"], status: "Alive", species: "Human" },
-        { image: "images/img2.webp", names: ["Morty Smith"], species: "Human" },
-        { image: "images/img3.webp", names: ["Summer Smith"], species: "Human" },
-        { image: "images/img4.webp", names: ["Abradolf Lincler"], species: "Genetic experiment" },
-        { image: "images/img5.webp", names: ["Adjudicator Rick"], species: "Human" },
-        { image: "images/img6.webp", names: ["Agency Director"] },
-        { image: "images/img7.webp", names: ["Alan Rails"] },
-        { image: "images/img8.webp", names: ["Albert Einstein"] },
-        { image: "images/img9.webp", names: ["Alexander"] },
-        { image: "images/img10.webp", names: ["Alien Gogah"] },
-        { image: "images/img11.webp", names: ["Alien Morty"] },
-        { image: "images/img12.webp", names: ["Alien Rick"] },
-        { image: "images/img13.webp", names: ["Amish Cyborg"] },
-        { image: "images/img14.webp", names: ["Annie"] },
-        { image: "images/img15.webp", names: ["Antenna Morty"] },
-        { image: "images/img16.webp", names: ["Antenna Rick"] },
-        { image: "images/img17.webp", names: ["Ants In My Eyes Johnson"] },
-
--->
     <script>
         const characters = [
+        // ... (your character data) ...
         {
-            name: "Rick Sanchez",
-            status: "Alive",
-            species: "Human",
-            image: "images/img1.webp"
-        },
-        {
-            name: "Morty Smith",
-            status: "Alive",
-            species: "Human",
-            image: "images/img2.webp"
-        },
-        {
-            name: "Summer Smith",
-            status: "Alive",
-            species: "Human",
-            image: "images/img3.webp"
-        },
-        {
-            name: "Abradolf Lincler",
-            status: "Alive",
-            species: "Genetic experiment",
-            image: "images/img4.webp"
-        },
-        {
-            name: "Adjudicator Rick",
-            status: "Alive",
-            species: "Human",
-            image: "images/img5.webp"
-        },
-        {
-            name: "Agency Director",
-            status: "Alive",
-            image: "images/img6.webp"
-        },
-        {
-            name: "Alan Rails",
-            status: "Alive",
-            image: "images/img7.webp"
-        },
-        {
-            name: "Albert Einstein",
-            status: "Alive",
-            image: "images/img8.webp"
-        },
-        {
-            name: "Alexander",
-            status: "Alive",
-            image: "images/img9.webp"
-        },
-        {
-            name: "Alien Gogah",
-            status: "Alive",
-            image: "images/img10.webp"
-        },
-        {
-            name: "Alien Morty",
-            status: "Alive",
-            image: "images/img11.webp"
-        },
-        {
-            name: "Alien Rick",
-            status: "Alive",
-            image: "images/img12.webp"
-        },
-        {
-            name: "Amish Cyborg",
-            status: "Alive",
-            image: "images/img13.webp"
-        },
-        {
-            name: "Annie",
-            status: "Alive",
-            image: "images/img14.webp"
-        },
-        {
-            name: "Antenna Morty",
-            status: "Alive",
-            image: "images/img15.webp"
-        },
-        {
-            name: "Antenna Rick",
-            status: "Alive",
-            image: "images/img16.webp"
-        },
-        {
-            name: "Ants In My Eyes Johnson",
-            status: "Alive",
-            image: "images/img17.webp"
-        }
-        // Add more character data here
+                name: "Rick Sanchez",
+                species: "Human",
+                image: "images/img1.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Morty Smith",
+                species: "Human",
+                image: "images/img2.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Summer Smith",
+                species: "Human",
+                image: "images/img3.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Abradolf Lincler",
+                species: "Human",
+                image: "images/img4.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Adjudicator Rick",
+                species: "Human",
+                image: "images/img5.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Agency Director",
+                species: "Human",
+                image: "images/img6.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Alan Rails",
+                species: "Human",
+                image: "images/img7.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Albert Einstein",
+                species: "Human",
+                image: "images/img8.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Alexander",
+                species: "Human",
+                image: "images/img9.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Alien Gogah",
+                species: "Alien",
+                image: "images/img10.webp",
+                status: "Unknown",
+                gender: "Unknown"
+            },
+            {
+                name: "Alien Morty",
+                species: "Alien",
+                image: "images/img11.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Alien Rick",
+                species: "Alien",
+                image: "images/img12.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Amish Cyborg",
+                species: "Alien",
+                image: "images/img13.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Annie",
+                species: "Human",
+                image: "images/img14.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Antenna Morty",
+                species: "Human",
+                image: "images/img15.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Antenna Rick",
+                species: "Human",
+                image: "images/img16.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Ants In My Eyes Johnson",
+                species: "Human",
+                image: "images/img17.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Aqua Morty",
+                species: "Humanoid",
+                image: "images/img18.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Aqua Rick",
+                species: "Human",
+                image: "images/img19.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Arcade Alien",
+                species: "Alien",
+                image: "images/img20.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Armagheadon",
+                species: "Alien",
+                image: "images/img21.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Armothy",
+                species: "Unknown",
+                image: "images/img22.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Arthricia",
+                species: "Alien",
+                image: "images/img23.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Artist Morty",
+                species: "Human",
+                image: "images/img24.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Attila Starwar",
+                species: "Human",
+                image: "images/img25.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Baby Legs",
+                species: "Human",
+                image: "images/img26.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Baby Poopybutthole",
+                species: "Alien",
+                image: "images/img27.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Baby Wizard",
+                species: "Alien",
+                image: "images/img28.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Bearded Lady",
+                species: "Alien",
+                image: "images/img29.webp",
+                status: "Dead",
+                gender: "Female"
+            },
+            {
+                name: "Beebo",
+                species: "Alien",
+                image: "images/img30.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Benjamin",
+                species: "Human",
+                image: "images/img31.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Bepisian",
+                species: "Alien",
+                image: "images/img32.webp",
+                status: "Alive",
+                gender: "Unknown"
+            },
+            {
+                name: "Beta-Seven",
+                species: "Alien",
+                image: "images/img33.webp",
+                status: "Alive",
+                gender: "Unknown"
+            },
+            {
+                name: "Beth Sanchez",
+                species: "Human",
+                image: "images/img34.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Beth Smith",
+                species: "Human",
+                image: "images/img35.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Beth Smith",
+                species: "Human",
+                image: "images/img36.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Beth's Mytholog",
+                species: "Human",
+                image: "images/img37.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Big Boobed Waitress",
+                species: "Mythological Creature",
+                image: "images/img38.webp",
+                status: "Alive",
+                gender: "Female"
+            },
+            {
+                name: "Big Head Morty",
+                species: "Human",
+                image: "images/img39.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Big Morty",
+                species: "Human",
+                image: "images/img40.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Body Guard Morty",
+                species: "Human",
+                image: "images/img41.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Bill",
+                species: "Human",
+                image: "images/img42.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Bill",
+                species: "Human",
+                image: "images/img43.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Bird Person",
+                species: "Alien",
+                image: "images/img44.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Black Rick",
+                species: "Alien",
+                image: "images/img45.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Blamph",
+                species: "Alien",
+                image: "images/img46.webp",
+                status: "Alive",
+                gender: "Unknown"
+            },
+            {
+                name: "Blim Blam",
+                species: "Alien",
+                image: "images/img47.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Blue Diplomat",
+                species: "Human",
+                image: "images/img48.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Blue Footprint Guy",
+                species: "Human",
+                image: "images/img49.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Blue Shirt Morty",
+                species: "Human",
+                image: "images/img50.webp",
+                status: "Unknown",
+                gender: "Male"
+            },
+            {
+                name: "Bobby Moynihan",
+                species: "Human",
+                image: "images/img51.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Bootleg Portal Chemist Rick",
+                species: "Human",
+                image: "images/img52.webp",
+                status: "Dead",
+                gender: "Unknown"
+            },
+            {
+                name: "Calypso",
+                species: "Human",
+                image: "images/img53.webp",
+                status: "Dead",
+                gender: "Female"
+            },
+            {
+                name: "Campaign Manager Morty",
+                species: "Human",
+                image: "images/img54.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Canklanker Thom",
+                species: "Human",
+                image: "images/img55.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Centaur",
+                species: "Human",
+                image: "images/img56.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Chris",
+                species: "Human",
+                image: "images/img57.webp",
+                status: "Dead",
+                gender: "Unknown"
+            },
+            {
+                name: "Chris",
+                species: "Human",
+                image: "images/img58.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Coach Feratu",
+                species: "Mythological Creature",
+                image: "images/img59.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Collector",
+                species: "Human",
+                image: "images/img60.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Colossus",
+                species: "Alien",
+                image: "images/img61.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Commander Rick",
+                species: "Alien",
+                image: "images/img62.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Concerto",
+                species: "Alien",
+                image: "images/img63.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Conroy",
+                species: "Alien",
+                image: "images/img64.webp",
+                status: "Dead",
+                gender: "Unknown"
+            },
+            {
+                name: "Cool Rick",
+                species: "Human",
+                image: "images/img65.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Cop Morty",
+                species: "Human",
+                image: "images/img66.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Cop Rick",
+                species: "Human",
+                image: "images/img67.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Courier Flap",
+                species: "Human",
+                image: "images/img68.webp",
+                status: "Alive",
+                gender: "Unknown"
+            },
+            {
+                name: "Cousin Nicky",
+                species: "Alien",
+                image: "images/img69.webp",
+                status: "Dead",
+                gender: "Male"
+            },
+            {
+                name: "Cowboy Morty",
+                species: "Human",
+                image: "images/img70.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Cowboy Rick",
+                species: "Human",
+                image: "images/img71.webp",
+                status: "Alive",
+                gender: "Male"
+            },
+            {
+                name: "Crab Spider",
+                species: "Human",
+                image: "images/img72.webp",
+                status: "Alive",
+                gender: "Unknown"
+            },
+            {
+                name: "Creepy Little Girl",
+                species: "Human",
+                image: "images/img73.webp",
+                status: "Alive",
+                gender: "Female"
+            }
         ];
+
+        const charactersPerPage = 17;
+        let currentPage = 1;
 
         const characterContainer = document.querySelector('.character-container');
         const searchInput = document.querySelector('#search');
 
+        let currentFilter = ''; 
+
         function renderCharacters() {
             characterContainer.innerHTML = '';
             const searchTerm = searchInput.value.toLowerCase();
+            const startIndex = (currentPage - 1) * charactersPerPage;
+            const endIndex = startIndex + charactersPerPage;
 
-            characters.forEach(characterData => {
-                if (characterData.name.toLowerCase().includes(searchTerm)) {
-                    const characterCard = document.createElement('div');
-                    characterCard.classList.add('character-card');
+            let filteredCharacters = characters;
 
-                    const characterImage = document.createElement('img');
-                    characterImage.src = characterData.image;
+            if (currentFilter === 'alive') {
+                filteredCharacters = filteredCharacters.filter(character => character.status.toLowerCase() === 'alive');
+            } else if (currentFilter === 'dead') {
+                filteredCharacters = filteredCharacters.filter(character => character.status.toLowerCase() === 'dead');
+            } else if (currentFilter === 'unknown') {
+                filteredCharacters = filteredCharacters.filter(character => character.status.toLowerCase() === 'unknown');
+            }
 
-                    characterCard.appendChild(characterImage);
+            filteredCharacters = filteredCharacters.filter(characterData =>
+                characterData.name.toLowerCase().includes(searchTerm)
+            );
 
-                    const characterNameElement = document.createElement('p');
-                    characterNameElement.textContent = characterData.name;
-                    characterCard.appendChild(characterNameElement);
+            const charactersToDisplay = filteredCharacters.slice(startIndex, endIndex);
 
-                    const speciesElement = document.createElement('b');
-                    speciesElement.textContent = `Species: ${characterData.species || 'Unknown'}`;
-                    characterCard.appendChild(speciesElement);
+            charactersToDisplay.forEach(characterData => {
+                const characterCard = document.createElement('div');
+                characterCard.classList.add('character-card');
 
-                    characterContainer.appendChild(characterCard);
-                }
+                const characterImage = document.createElement('img');
+                characterImage.src = characterData.image;
+                characterCard.appendChild(characterImage);
+
+                const characterNameElement = document.createElement('p');
+                characterNameElement.textContent = characterData.name;
+                characterCard.appendChild(characterNameElement);
+
+                const characterStatus = document.createElement('a');
+                characterStatus.textContent = `Status: ${characterData.status || 'Unknown'}`;
+                characterCard.appendChild(characterStatus);
+
+                const speciesElement = document.createElement('b');
+                speciesElement.textContent = `Species: ${characterData.species || 'Unknown'}`;
+                characterCard.appendChild(speciesElement);
+
+                const genderElement = document.createElement('d');
+                genderElement.textContent = `Gender: ${characterData.gender || 'Unknown'}`;
+                characterCard.appendChild(genderElement);
+
+                characterContainer.appendChild(characterCard);
             });
+
+            renderPaginationButtons();
         }
 
-        // Initial rendering
-        renderCharacters();
+        searchInput.addEventListener('input', () => {
+            currentPage = 1;
+            renderCharacters();
+        });
 
-        // Add event listener for real-time search
-        searchInput.addEventListener('input', renderCharacters);
+        const paginationButtons = document.querySelector('#pagination-buttons');
+
+        function renderPaginationButtons() {
+            paginationButtons.innerHTML = '';
+
+            const searchTerm = searchInput.value.toLowerCase();
+            let filteredCharacters = characters;
+
+            if (currentFilter === 'alive') {
+                filteredCharacters = filteredCharacters.filter(character => character.status.toLowerCase() === 'alive');
+            } else if (currentFilter === 'dead') {
+                filteredCharacters = filteredCharacters.filter(character => character.status.toLowerCase() === 'dead');
+            } else if (currentFilter === 'unknown') {
+                filteredCharacters = filteredCharacters.filter(character => character.status.toLowerCase() === 'unknown');
+            }
+
+            filteredCharacters = filteredCharacters.filter(characterData =>
+                characterData.name.toLowerCase().includes(searchTerm)
+            );
+
+            const totalPages = Math.ceil(filteredCharacters.length / charactersPerPage);
+
+            const maxButtonsToShow = 5;
+
+            const currentPageIndex = currentPage - 1;
+            const halfButtonsToShow = Math.floor(maxButtonsToShow / 2);
+
+            let startPageIndex = Math.max(0, currentPageIndex - halfButtonsToShow);
+            let endPageIndex = Math.min(totalPages - 1, startPageIndex + maxButtonsToShow - 1);
+
+            if (endPageIndex - startPageIndex < maxButtonsToShow - 1) {
+                startPageIndex = Math.max(0, endPageIndex - maxButtonsToShow + 1);
+            }
+
+            for (let i = startPageIndex; i <= endPageIndex; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i + 1;
+                pageButton.addEventListener('click', () => {
+                    currentPage = i + 1;
+                    renderCharacters();
+                });
+                paginationButtons.appendChild(pageButton);
+            }
+        }
+
+        renderCharacters();
+        const aliveButton = document.querySelector('#alive');
+        aliveButton.addEventListener('click', () => {
+            currentFilter = 'alive';
+            currentPage = 1;
+            searchInput.value = '';
+            renderCharacters();
+        });
+
+        const allButton = document.querySelector('#all');
+        allButton.addEventListener('click', () => {
+            currentFilter = 'all';
+            currentPage = 1;
+            searchInput.value = '';
+            renderCharacters();
+        });
+
+        const backButton = document.querySelector('#back');
+        backButton.addEventListener('click', () => {
+            currentFilter = '';
+            currentPage = 1;
+            searchInput.value = '';
+            renderCharacters();
+        });
+
+        const deadButton = document.querySelector('#dead');
+        deadButton.addEventListener('click', () => {
+            currentFilter = 'dead';
+            currentPage = 1;
+            searchInput.value = '';
+            renderCharacters();
+        });
+
+        const unknownButton = document.querySelector('#unknown');
+        unknownButton.addEventListener('click', () => {
+            currentFilter = 'unknown';
+            currentPage = 1;
+            searchInput.value = '';
+            renderCharacters();
+        });
     </script>
 </body>
+
 </html>
