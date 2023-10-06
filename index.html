@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- ... (your existing head content) ... -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto&display=swap" rel="stylesheet">
@@ -12,8 +11,8 @@
         /* Add a new CSS class for styling the species */
     </style>
 </head>
-
 <body>
+    <!--Header-->
     <header class="header">
         <p id="headertxt">Rick and Morty</p>
         <div id="startparent">
@@ -22,6 +21,7 @@
     </header>
 
     <div class="parent1">
+        <!--Buttons-->
         <div class="main">
             <button id="all">All</button>
             <button id="dead">Dead</button>
@@ -29,9 +29,11 @@
             <button id="unknown">Unknown</button>
             <button id="back">Back</button>
         </div>
+        <!--Rick and morty Logo-->
         <div class="ricklogo">
             <img style="width: 150px;" src="images/ricklogo.png">
         </div>
+        <!--Search Box-->
         <div class="searchbuttonbox">
             <div class="search-container">
                 <input class="searchbox" id="search" type="text" name="search" placeholder="Search character name...">
@@ -48,7 +50,7 @@
     </div>
     <script>
         const characters = [
-        // ... (your character data) ...
+        //Characters Info
         {
                 name: "Rick Sanchez",
                 species: "Human",
@@ -561,10 +563,10 @@
                 gender: "Female"
             }
         ];
-
+        //pagination
         const charactersPerPage = 17;
         let currentPage = 1;
-
+        //Characters
         const characterContainer = document.querySelector('.character-container');
         const searchInput = document.querySelector('#search');
 
@@ -577,7 +579,7 @@
             const endIndex = startIndex + charactersPerPage;
 
             let filteredCharacters = characters;
-
+//Buttons Functions
             if (currentFilter === 'alive') {
                 filteredCharacters = filteredCharacters.filter(character => character.status.toLowerCase() === 'alive');
             } else if (currentFilter === 'dead') {
@@ -595,23 +597,23 @@
             charactersToDisplay.forEach(characterData => {
                 const characterCard = document.createElement('div');
                 characterCard.classList.add('character-card');
-
+//Character Image
                 const characterImage = document.createElement('img');
                 characterImage.src = characterData.image;
                 characterCard.appendChild(characterImage);
-
+//Character name
                 const characterNameElement = document.createElement('p');
                 characterNameElement.textContent = characterData.name;
                 characterCard.appendChild(characterNameElement);
-
+//Character status
                 const characterStatus = document.createElement('a');
                 characterStatus.textContent = `Status: ${characterData.status || 'Unknown'}`;
                 characterCard.appendChild(characterStatus);
-
+//Character specie
                 const speciesElement = document.createElement('b');
                 speciesElement.textContent = `Species: ${characterData.species || 'Unknown'}`;
                 characterCard.appendChild(speciesElement);
-
+//Character Gender
                 const genderElement = document.createElement('d');
                 genderElement.textContent = `Gender: ${characterData.gender || 'Unknown'}`;
                 characterCard.appendChild(genderElement);
@@ -634,7 +636,7 @@
 
             const searchTerm = searchInput.value.toLowerCase();
             let filteredCharacters = characters;
-
+//Filter Buttons
             if (currentFilter === 'alive') {
                 filteredCharacters = filteredCharacters.filter(character => character.status.toLowerCase() === 'alive');
             } else if (currentFilter === 'dead') {
@@ -680,7 +682,7 @@
             searchInput.value = '';
             renderCharacters();
         });
-
+//all button render
         const allButton = document.querySelector('#all');
         allButton.addEventListener('click', () => {
             currentFilter = 'all';
@@ -688,7 +690,7 @@
             searchInput.value = '';
             renderCharacters();
         });
-
+//back button render
         const backButton = document.querySelector('#back');
         backButton.addEventListener('click', () => {
             currentFilter = '';
@@ -696,7 +698,7 @@
             searchInput.value = '';
             renderCharacters();
         });
-
+//dead button render
         const deadButton = document.querySelector('#dead');
         deadButton.addEventListener('click', () => {
             currentFilter = 'dead';
@@ -704,7 +706,7 @@
             searchInput.value = '';
             renderCharacters();
         });
-
+//unknown button render
         const unknownButton = document.querySelector('#unknown');
         unknownButton.addEventListener('click', () => {
             currentFilter = 'unknown';
